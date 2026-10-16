@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Imkon Savdo — Admin panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Imkon Savdo <small>Admin panel</small></div>
+    <div>
+      <a href="index.html">Davomat oynasi</a>
+      <button class="link" id="logout" hidden>Chiqish</button>
+    </div>
+  </header>
+
+  <!-- Kirish -->
+  <section class="login" id="loginBox">
+    <h1>Admin kirishi</h1>
+    <label for="pass">Parol</label>
+    <input type="password" id="pass" autocomplete="current-password" />
+    <p class="error" id="loginError"></p>
+    <button class="btn" id="loginBtn">Kirish</button>
+  </section>
+
+  <!-- Panel -->
+  <main class="wrap" id="app" hidden>
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tabAtt" aria-selected="true">Davomat</button>
+      <button role="tab" id="tabEmp" aria-selected="false">Xodimlar</button>
+    </div>
+
+    <!-- Davomat -->
+    <section id="paneAtt">
+      <div class="stats">
+        <div class="stat"><b id="sTotal">0</b><span>Jami xodim</span></div>
+        <div class="stat ok"><b id="sCame">0</b><span>Keldi</span></div>
+        <div class="stat late"><b id="sLate">0</b><span>Kechikdi</span></div>
+        <div class="stat bad"><b id="sAbsent">0</b><span>Kelmadi</span></div>
+      </div>
+
+      <div class="toolbar">
+        <div>
+          <label for="dateFilter">Sana</label>
+          <input type="date" id="dateFilter" />
+        </div>
+        <div class="spacer"></div>
+        <button class="btn ghost" id="csvBtn">CSV yuklab olish</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Xodim</th><th>Lavozim</th><th>Kelgan vaqti</th><th>Holat</th></tr>
+          </thead>
+          <tbody id="attBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Xodimlar -->
+    <section id="paneEmp" hidden>
+      <div class="panel enroll">
+        <div>
+          <div class="camera-box"><video id="enrollVideo" autoplay muted playsinline></video></div>
+        </div>
+        <div>
+          <h2>Yangi xodim qo'shish</h2>
+          <label for="empName">Ism familiya</label>
+          <input type="text" id="empName" />
+          <label for="empRole">Lavozim</label>
+          <input type="text" id="empRole" placeholder="Masalan: Sotuvchi" />
+          <p class="msg" id="enrollMsg"></p>
+          <button class="btn" id="enrollBtn">Yuzni saqlash</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Xodim</th><th>Lavozim</th><th></th></tr></thead>
+          <tbody id="empBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script src="common.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

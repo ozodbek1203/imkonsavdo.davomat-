@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Imkon Savdo — Davomat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Imkon Savdo <small>Davomat</small></div>
+    <div class="clock" id="clock"></div>
+    <a href="admin.html">Admin panel</a>
+  </header>
+
+  <main class="kiosk">
+    <section>
+      <div class="camera-box">
+        <video id="video" autoplay muted playsinline></video>
+        <div class="status" id="status" data-state="idle">
+          Yuklanmoqda…
+          <small>Yuz modellari yuklanyapti</small>
+        </div>
+      </div>
+    </section>
+
+    <aside>
+      <div class="panel">
+        <h2>Bugun kelganlar</h2>
+        <ul class="arrivals" id="arrivals"></ul>
+      </div>
+    </aside>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script src="common.js"></script>
+  <script src="kiosk.js"></script>
+</body>
+</html>
